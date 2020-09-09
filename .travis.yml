@@ -32,8 +32,9 @@ script:
     cd /home/builder/twrp/
     source build/envsetup.sh
     # Choose build flavor as "eng" or "userdebug"
-    BUILD_FLAVOR="eng"
-    lunch omni_CP8676_I02-${BUILD_FLAVOR}
+    #BUILD_FLAVOR="eng"
+    #lunch omni_CP8676_I02-${BUILD_FLAVOR}
+    lunch omni_CP8676_I02
     make -j$(nproc --all) recoveryimage
     exit
     EOF
