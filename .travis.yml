@@ -31,10 +31,8 @@ script:
     docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/home/builder/twrp/:rw,z" -v "${HOME}/.ccache:/srv/ccache:rw,z" fr3akyphantom/droid-builder bash << EOF
     sudo chmod -R a+x /home/builder
     cd /home/builder/twrp/
+    repo sync -j64
     source build/envsetup.sh
-    # Choose build flavor as "eng" or "userdebug"
-    export BUILD_FLAVOR="eng"
-    #lunch omni_CP8676_I02-${BUILD_FLAVOR}
     lunch omni_CP8676_I02-eng
     make -j$(nproc --all) recoveryimage
     exit
